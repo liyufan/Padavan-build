@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -36,6 +36,11 @@ jobs:
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
+    - name: Update components
+      run:  |
+        cd /opt/rt-n56u/trunk/user/unblockmusic
+        rm -f *.gz
+        sed -i 's/0.2.3/0.2.4/g' Makefile
     - name: Build Firmware
       env:
         TNAME: NEWIFI3
