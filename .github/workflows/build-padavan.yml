@@ -39,7 +39,7 @@ jobs:
     - name: Update components
       run:  |
         cd /opt/rt-n56u/trunk/user/unblockmusic
-        rm -f *.gz
+        rm *.gz
         sed -i 's/0.2.3/0.2.4/g' Makefile
     - name: Build Firmware
       env:
