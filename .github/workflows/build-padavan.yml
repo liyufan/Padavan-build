@@ -40,6 +40,10 @@ jobs:
       run:  |
         cd /opt/rt-n56u/trunk/user/unblockmusic
         rm *.gz
+        cd /opt/rt-n56u/trunk/user/v2ray
+        rm *.gz
+        sed -i 's/4.27.0/4.27.4/g' Makefile
+        sed -i '6s/v2ray/v2fly/' Makefile
     - name: Build Firmware
       env:
         TNAME: NEWIFI3
